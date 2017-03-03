@@ -14,26 +14,34 @@ public class Movement {
 		rmotor.synchronizeWith(new RegulatedMotor[] {this.lmotor});
 	}
 	
-	void forward() {
+	public void forward() {
+		this.rmotor.setSpeed(500);
+		this.lmotor.setSpeed(500);
 		this.rmotor.startSynchronization();
 		this.rmotor.backward();
 		this.lmotor.backward();
 		this.rmotor.endSynchronization();
 	}
 	
-	void back() {
+	public void back() {
+		this.rmotor.setSpeed(500);
+		this.lmotor.setSpeed(500);
 		this.rmotor.startSynchronization();
 		this.rmotor.forward();
 		this.lmotor.forward();
 		this.rmotor.endSynchronization();
 	}
 
-	void turn() {
+	public void turn(float right, float left) {
+		this.rmotor.setSpeed(right * 10);
+		this.lmotor.setSpeed(left * 10);
 		this.rmotor.startSynchronization();
+		this.rmotor.forward();
+		this.lmotor.forward();
 		this.rmotor.endSynchronization();
 	}
 
-	void stop() {
+	public void stop() {
 		this.rmotor.startSynchronization();
 		this.rmotor.stop();
 		this.lmotor.stop();
