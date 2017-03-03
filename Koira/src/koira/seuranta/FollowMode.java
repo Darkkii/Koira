@@ -12,7 +12,7 @@ public class FollowMode {
 		this.target = new BeaconLocation().getLocation();
 		
 		if(this.target[0] > 0 || this.target[0] < 0) {
-			this.move.turn(50, this.target[0]);
+			this.move.turn(right, left);		// Lisää kääntösäteet kaukosäätimen sijainnin mukaan
 		} else if(this.target[0] == 0 && this.target[1] != Float.POSITIVE_INFINITY) {
 			this.move.forward();
 		} else if(this.target[1] == Float.POSITIVE_INFINITY) {

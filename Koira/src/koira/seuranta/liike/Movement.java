@@ -32,9 +32,9 @@ public class Movement {
 		this.rmotor.endSynchronization();
 	}
 
-	public void turn(float right, float left) {
-		this.rmotor.setSpeed(right * 10);
-		this.lmotor.setSpeed(left * 10);
+	public void turn(float rspeed, float lspeed) {
+		this.rmotor.setSpeed(rspeed);
+		this.lmotor.setSpeed(lspeed);
 		this.rmotor.startSynchronization();
 		this.rmotor.forward();
 		this.lmotor.forward();
