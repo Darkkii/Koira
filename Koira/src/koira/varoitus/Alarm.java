@@ -1,12 +1,18 @@
 package koira.varoitus;
 
+import java.io.File;
+
+import lejos.hardware.Sound;
+
 public class Alarm {
-	public Alarm{
-		// tänne konstruktori hälytykselle
+	private File haukku;
+	
+	public Alarm() {
+		this.haukku = new File("haukku.wav");
 	}
 
 	public void alarm() {
-		// tänne hälytyskoodi
+		Sound.playSample(this.haukku);
 	}
 
 }
