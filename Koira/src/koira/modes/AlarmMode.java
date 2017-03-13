@@ -1,4 +1,4 @@
-package Moodit;
+package koira.modes;
 
 import koira.Koira;
 import koira.varoitus.Alarm;

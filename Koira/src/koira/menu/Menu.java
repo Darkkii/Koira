@@ -1,7 +1,7 @@
 package koira.menu;
 
-import Moodit.*;
 import koira.Koira;
+import koira.modes.*;
 import lejos.hardware.Button;
 
 public class Menu extends Koira{
