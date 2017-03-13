@@ -1,4 +1,4 @@
-package koira.seuranta.liike;
+package koira.moottori;
 
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
@@ -7,6 +7,7 @@ import lejos.robotics.RegulatedMotor;
 public class Movement {
 	private EV3LargeRegulatedMotor rmotor;
 	private EV3LargeRegulatedMotor lmotor;
+	public static final int MAX_SPEED = 500;
 	
 	public Movement() {
 		this.rmotor = new EV3LargeRegulatedMotor(MotorPort.A);
@@ -14,30 +15,22 @@ public class Movement {
 		rmotor.synchronizeWith(new RegulatedMotor[] {this.lmotor});
 	}
 	
-	public void forward() {
-		this.rmotor.setSpeed(500);
-		this.lmotor.setSpeed(500);
-		this.rmotor.startSynchronization();
-		this.rmotor.backward();
-		this.lmotor.backward();
-		this.rmotor.endSynchronization();
-	}
+	// Moottorien nopeuden säädöt ja suunnan valinta
 	
-	public void back() {
-		this.rmotor.setSpeed(500);
-		this.lmotor.setSpeed(500);
+	public void move(int rSpeed, int lSpeed, boolean rDirection, boolean lDirection) {
+		this.rmotor.setSpeed(rSpeed);
+		this.lmotor.setSpeed(lSpeed);
 		this.rmotor.startSynchronization();
-		this.rmotor.forward();
-		this.lmotor.forward();
-		this.rmotor.endSynchronization();
-	}
-
-	public void turn(float rspeed, float lspeed) {
-		this.rmotor.setSpeed(rspeed);
-		this.lmotor.setSpeed(lspeed);
-		this.rmotor.startSynchronization();
-		this.rmotor.forward();
-		this.lmotor.forward();
+		if(rDirection == true) {
+			this.rmotor.forward();
+		} else {
+			this.rmotor.backward();
+		}
+		if(lDirection == true) {
+			this.lmotor.forward();
+		} else {
+			this.lmotor.backward();
+		}
 		this.rmotor.endSynchronization();
 	}
 

@@ -1,4 +1,4 @@
-package koira.vahtikoira.varoitus;
+package koira.varoitus;
 
 public class Alarm {
 	public Alarm{

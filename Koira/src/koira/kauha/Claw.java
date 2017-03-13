@@ -1,9 +1,10 @@
 package koira.kauha;
 
+import koira.Koira;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 
-public class Claw {
+public class Claw extends Koira {
 	EV3MediumRegulatedMotor claw;
 	
 	public Claw() {
