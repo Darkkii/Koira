@@ -12,6 +12,6 @@ public class Koira {
 		this.sensor = new Sensor();
 		this.motor = new Movement();
 		sensor.start();
-		Menu menu = new Menu();
+		new Menu();
 	}
 }
